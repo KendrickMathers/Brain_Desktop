@@ -4,9 +4,11 @@ import "../../"
 import "../../components"
 import "../../services"
 
+
 Item {
 
     anchors.fill: parent
+
 
 
     PopupPage {
@@ -14,11 +16,14 @@ Item {
         anchors.fill: parent
 
 
+
         Column {
 
             width: parent.width
 
             spacing: 18
+
+
 
 
 
@@ -30,9 +35,13 @@ Item {
 
 
 
+
+
             SettingCard {
 
+
                 width: parent.width
+
 
 
                 SectionTitle {
@@ -46,25 +55,47 @@ Item {
 
                 ActionButton {
 
+
                     text: "Browse Images"
+
 
 
                     onClicked: {
 
-                        FileService.open(
-                            Quickshell.env("HOME") +
-                            "/Pictures/Wallpapers"
-                        )
+                        WallpaperService.browseImages()
 
                     }
+
                 }
+
 
 
 
 
                 ActionButton {
 
+
+                    text: "Browse Videos"
+
+
+
+                    onClicked: {
+
+                        WallpaperService.browseVideos()
+
+                    }
+
+                }
+
+
+
+
+
+                ActionButton {
+
+
                     text: "Random Wallpaper"
+
 
 
                     onClicked: {
@@ -72,6 +103,7 @@ Item {
                         WallpaperService.randomWallpaper()
 
                     }
+
                 }
 
 
@@ -80,27 +112,39 @@ Item {
 
                 ActionButton {
 
+
                     text: "Open Wallpaper Folder"
+
 
 
                     onClicked: {
 
+
                         FileService.open(
+
                             Quickshell.env("HOME") +
+
                             "/Pictures/Wallpapers"
+
                         )
 
+
                     }
+
                 }
+
 
             }
 
 
 
 
+
             SettingCard {
 
+
                 width: parent.width
+
 
 
                 SectionTitle {
@@ -112,17 +156,25 @@ Item {
 
 
 
+
                 SettingRow {
+
 
                     title: "Current Wallpaper"
 
 
+
                     subtitle:
+
                         WallpaperService.currentWallpaper === ""
+
                         ? "Not Loaded"
+
                         : WallpaperService.currentWallpaper
 
+
                 }
+
 
             }
 
