@@ -1,10 +1,13 @@
 import QtQuick
+import "../theme"
 
 Item {
 
+    id: root
+
     property alias text: title.text
 
-    width: parent.width
+    width: parent ? parent.width : 200
     height: 34
 
     Text {
@@ -14,10 +17,12 @@ Item {
         anchors.left: parent.left
         anchors.verticalCenter: parent.verticalCenter
 
-        font.pixelSize: 18
-        font.bold: true
+        text: ""
 
         color: Theme.text
+
+        font.pixelSize: 18
+        font.bold: true
 
     }
 

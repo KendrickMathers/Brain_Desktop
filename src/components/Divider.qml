@@ -3,8 +3,7 @@ import "../theme"
 
 Rectangle {
 
-    width: parent.width
-
+    width: parent ? parent.width : 200
     height: 1
 
     color: Qt.rgba(
@@ -13,4 +12,5 @@ Rectangle {
         Theme.border.b,
         0.6
     )
-}Theme.border
+
+}

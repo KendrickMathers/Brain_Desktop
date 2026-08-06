@@ -1,4 +1,5 @@
 import QtQuick
+import "../theme"
 
 Rectangle {
 
@@ -8,7 +9,7 @@ Rectangle {
 
     signal clicked()
 
-    width: parent.width
+    width: parent ? parent.width : 200
     height: 42
 
     radius: Theme.cornerRadius
@@ -31,20 +32,19 @@ Rectangle {
     }
 
     Text {
-
         id: label
 
         anchors.centerIn: parent
 
+        text: ""
+
         color: Theme.text
 
         font.pixelSize: 13
-
         font.weight: Font.Medium
     }
 
     MouseArea {
-
         id: mouse
 
         anchors.fill: parent
