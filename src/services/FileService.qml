@@ -10,9 +10,18 @@ QtObject {
 
     property Process proc: Process { }
 
-    function open(path) {
+   function open(path) {
+    
         proc.running = false
-        proc.command = ["xdg-open", path]
+    
+        proc.command = [
+            "bash",
+            "-c",
+            "xdg-open \"$1\"",
+            "bash",
+            path
+        ]
+    
         proc.running = true
     }
 
