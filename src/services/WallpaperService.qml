@@ -16,7 +16,23 @@ QtObject {
     readonly property string script:
         Quickshell.env("HOME") +
         "/.local/src/Brain_Shell/src/scripts/wallpaper.sh"
+        
+     property Process picker: Process {
 
+    stdout: SplitParser {
+
+        onRead: function(line) {
+
+            var file = line.trim()
+
+            if (file !== "")
+                root.applyWallpaper(file)
+
+        }
+
+    }
+
+}
     property Process proc: Process {
 
         stdout: SplitParser {
@@ -72,7 +88,21 @@ QtObject {
             reloadCurrentWallpaper()
         })
     }
+    function browseImages() {
 
+    picker.running = false
+
+    picker.command = [
+        "zenity",
+        "--file-selection",
+        "--title=Choose Wallpaper",
+        "--filename=" + Quickshell.env("HOME") + "/Pictures/Wallpapers/",
+        "--file-filter=Images | *.png *.jpg *.jpeg *.webp"
+    ]
+
+    picker.running = true
+
+}
     Component.onCompleted: {
         reloadCurrentWallpaper()
     }

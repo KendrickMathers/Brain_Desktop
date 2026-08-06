@@ -50,7 +50,7 @@ Item {
                     text: "Browse Images"
                 
                     onClicked: {
-                        FileService.wallpapers()
+                        WallpaperService.browseImages()
                     }
                 }
                 
