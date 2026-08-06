@@ -22,61 +22,17 @@ Item {
 
 
 
-            SettingCard {
+            SectionTitle {
 
-                width: parent.width
+                text: "Wallpaper"
 
-
-                SectionTitle {
-
-                    text: "Wallpaper"
-
-                }
-
-
-
-                Rectangle {
-
-                    width: parent.width - 32
-
-                    height: 160
-
-                    radius: Theme.cornerRadius
-
-
-                    color: Qt.rgba(1,1,1,0.04)
-
-
-                    border.width: 1
-
-                    border.color: Theme.border
-
-
-
-                    Text {
-
-                        anchors.centerIn: parent
-
-
-                        text: "Wallpaper Preview"
-
-
-                        color: Theme.subtext
-
-
-                        font.pixelSize: 14
-
-                    }
-                }
             }
 
 
 
-
             SettingCard {
 
                 width: parent.width
-
 
 
                 SectionTitle {
@@ -91,7 +47,6 @@ Item {
                 ActionButton {
 
                     text: "Browse Images"
-
 
 
                     onClicked: {
@@ -112,7 +67,6 @@ Item {
                     text: "Random Wallpaper"
 
 
-
                     onClicked: {
 
                         WallpaperService.randomWallpaper()
@@ -127,7 +81,6 @@ Item {
                 ActionButton {
 
                     text: "Open Wallpaper Folder"
-
 
 
                     onClicked: {
@@ -145,12 +98,9 @@ Item {
 
 
 
-
             SettingCard {
 
                 width: parent.width
-
-
 
 
                 SectionTitle {
@@ -162,11 +112,9 @@ Item {
 
 
 
-
                 SettingRow {
 
                     title: "Current Wallpaper"
-
 
 
                     subtitle:
@@ -175,7 +123,11 @@ Item {
                         : WallpaperService.currentWallpaper
 
                 }
+
             }
+
         }
+
     }
+
 }
