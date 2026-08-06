@@ -1,6 +1,7 @@
 pragma Singleton
 
 import QtQuick
+import Quickshell
 import Quickshell.Io
 
 QtObject {
@@ -10,17 +11,21 @@ QtObject {
     property Process proc: Process { }
 
     function open(path) {
-        proc.running=false
-        proc.command=["xdg-open",path]
-        proc.running=true
+        proc.running = false
+        proc.command = ["xdg-open", path]
+        proc.running = true
     }
 
     function config() {
-        open(Quickshell.env("HOME")+"/.config/Brain_Shell")
+        open(Quickshell.env("HOME") + "/.config/Brain_Shell")
     }
 
     function source() {
-        open(Quickshell.env("HOME")+"/.local/src/Brain_Shell")
+        open(Quickshell.env("HOME") + "/.local/src/Brain_Shell")
+    }
+
+    function wallpapers() {
+        open(Quickshell.env("HOME") + "/Pictures/Wallpapers")
     }
 
     function github() {

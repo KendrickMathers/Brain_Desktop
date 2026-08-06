@@ -17,6 +17,7 @@ DashHome home/DashHome.qml
 singleton NotificationService 1.0 ./notifications/NotificationService.qml
 NotificationList ./notifications/NotificationList.qml
 singleton WallpaperService 1.0 WallpaperService.qml
+singleton FileService 1.0 FileService.qml
 singleton ScreenRecService 1.0 ScreenRecService.qml
 KanbanBoard KanbanBoard.qml
 AppLauncher AppLauncher.qml
