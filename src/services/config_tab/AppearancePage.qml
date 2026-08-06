@@ -3,70 +3,45 @@ import "../../"
 import "../../components"
 
 Item {
+
     anchors.fill: parent
 
+
     PopupPage {
+
         anchors.fill: parent
+
 
         SettingCard {
 
             width: parent.width
 
+
             SectionTitle {
+
                 text: "Appearance"
+
             }
 
-            SettingRow {
 
-                title: "Theme"
-                subtitle: "Choose your preferred theme"
-
-                Row {
-                    spacing: 8
-
-                    ActionButton {
-                        width: 70
-                        text: "Auto"
-                    }
-
-                    ActionButton {
-                        width: 70
-                        text: "Dark"
-                    }
-
-                    ActionButton {
-                        width: 70
-                        text: "Light"
-                    }
-                }
-            }
-
-            Divider {}
-
-            SettingRow {
-
-                title: "Wallpaper"
-                subtitle: "Manage wallpapers"
-
-                ActionButton {
-                    width: 170
-                    text: "Open HyprWall"
-                }
-            }
-
-            Divider {}
 
             SettingRow {
 
                 title: "Accent Color"
-                subtitle: "Material You colors"
+
+                subtitle: "Material You colors powered by Matugen"
+
+
 
                 Rectangle {
 
                     width: 90
+
                     height: 28
 
+
                     radius: 14
+
 
                     color: Qt.rgba(
                         Theme.active.r,
@@ -75,31 +50,55 @@ Item {
                         0.18
                     )
 
+
                     border.color: Theme.active
+
                     border.width: 1
 
+
+
                     Text {
+
                         anchors.centerIn: parent
-                        text: "Soon"
+
+
+                        text: "Matugen"
+
+
                         color: Theme.active
+
+
                         font.pixelSize: 11
+
                     }
+
                 }
+
             }
 
+
+
             Divider {}
+
+
 
             SettingRow {
 
                 title: "Blur & Transparency"
+
                 subtitle: "Glass effects"
+
+
 
                 Rectangle {
 
                     width: 90
+
                     height: 28
 
+
                     radius: 14
+
 
                     color: Qt.rgba(
                         Theme.active.r,
@@ -108,31 +107,55 @@ Item {
                         0.18
                     )
 
+
                     border.color: Theme.active
+
                     border.width: 1
 
+
+
                     Text {
+
                         anchors.centerIn: parent
+
+
                         text: "Soon"
+
+
                         color: Theme.active
+
+
                         font.pixelSize: 11
+
                     }
+
                 }
+
             }
 
+
+
             Divider {}
+
+
 
             SettingRow {
 
                 title: "Corner Radius"
+
                 subtitle: "Rounded corners"
+
+
 
                 Rectangle {
 
                     width: 90
+
                     height: 28
 
+
                     radius: 14
+
 
                     color: Qt.rgba(
                         Theme.active.r,
@@ -141,17 +164,34 @@ Item {
                         0.18
                     )
 
+
                     border.color: Theme.active
+
                     border.width: 1
 
+
+
                     Text {
+
                         anchors.centerIn: parent
+
+
                         text: "Soon"
+
+
                         color: Theme.active
+
+
                         font.pixelSize: 11
+
                     }
+
                 }
+
             }
+
         }
+
     }
+
 }
