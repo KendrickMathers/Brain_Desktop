@@ -1,6 +1,8 @@
 pragma Singleton
 
 import QtQuick
+import Quickshell
+import Quickshell.Io
 
 QtObject {
 
@@ -11,30 +13,68 @@ QtObject {
 
     signal wallpaperChanged(string path)
 
-    function browseImages() {
-        console.log("Browse Images")
+    readonly property string script:
+        Quickshell.env("HOME") +
+        "/.local/src/Brain_Shell/src/scripts/wallpaper.sh"
+
+    property Process proc: Process {
+
+        stdout: SplitParser {
+            onRead: function(line) {
+
+                var text = line.trim()
+
+                if (text !== "") {
+                    root.currentWallpaper = text
+                    root.wallpaperChanged(text)
+                }
+            }
+        }
+
+        onExited: function(exitCode) {
+            root.busy = false
+
+            if (exitCode !== 0)
+                console.log("WallpaperService: command failed (" + exitCode + ")")
+        }
     }
 
-    function browseVideos() {
-        console.log("Browse Videos")
+    function run(args) {
+        proc.running = false
+        proc.command = [script].concat(args)
+        proc.running = true
     }
 
-    function randomWallpaper() {
-        console.log("Random Wallpaper")
+    function reloadCurrentWallpaper() {
+        run(["current"])
     }
 
     function applyWallpaper(path) {
 
-        if(path === "")
+        if (path === "")
             return
 
         busy = true
 
+        run(["apply", path])
+
         currentWallpaper = path
-
         wallpaperChanged(path)
+    }
 
-        busy = false
+    function randomWallpaper() {
+
+        busy = true
+
+        run(["random"])
+
+        Qt.callLater(function() {
+            reloadCurrentWallpaper()
+        })
+    }
+
+    Component.onCompleted: {
+        reloadCurrentWallpaper()
     }
 
 }
