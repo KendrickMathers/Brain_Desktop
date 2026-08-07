@@ -5,6 +5,32 @@ set -e
 DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CONFIG_DIR="$DOTFILES/configs"
 
+echo ""
+echo "Checking system compatibility..."
+echo ""
+
+# Check Arch-based system
+
+if [ ! -f /etc/arch-release ]; then
+    echo "[WARNING] This system is not Arch Linux based."
+    echo "Brain Desktop is tested on CachyOS and Arch Linux."
+    echo ""
+else
+    echo "[OK] Arch-based system detected"
+fi
+
+
+# Check Hyprland
+
+if ! command -v hyprctl >/dev/null 2>&1; then
+    echo "[ERROR] Hyprland is not installed."
+    echo "Please install Hyprland before running this installer."
+    exit 1
+fi
+
+echo "[OK] Hyprland detected"
+echo ""
+
 echo "================================="
 echo " Brain Desktop Installer"
 echo "================================="
