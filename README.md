@@ -271,18 +271,16 @@ Pull requests are welcome.
 
 # Credits
 
-Originally inspired by:
+Brain Desktop is built on top of **Brain Shell**, a Quickshell/QML desktop shell for Hyprland.
 
-- Hyprland community
-- Quickshell contributors
-- Linux ricing community
+Original Brain Shell project:
 
-Additional customization and integration:
+https://github.com/Brainitech/Brain_Shell
+
+Created by:
 
 ```text
-KendrickMathers
-```
-
+Venkat Saahit Kamu (Brainitech)
 ---
 
 # License
