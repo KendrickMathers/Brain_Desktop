@@ -1,7 +1,7 @@
 #!/bin/bash
 # ─────────────────────────────────────────────────────────────────────────────
 #  Brain Shell — Main Installer
-#  github.com/Brainitech/Brain_Shell  v0.1.0
+#  github.com/KendrickMathers/Brain_Shell  v0.1.0
 # ─────────────────────────────────────────────────────────────────────────────
 # Hesitation is Defeat — Isshin Ashina
 set -eo pipefail
@@ -39,7 +39,7 @@ echo " ▒███▒▒▒▒▒███ ▒███▒▒▒▒▒███
 echo " ▒███    ▒███ ▒███    ▒███  ▒███    ▒███  ▒███  ▒███  ▒▒█████     ███    ▒███ ▒███    ▒███  ▒███ ▒   █ ▒███      █ ▒███      █"
 echo " ███████████  █████   █████ █████   █████ █████ █████  ▒▒█████   ▒▒█████████  █████   █████ ██████████ ███████████ ███████████"
 echo -e "${NC}"
-echo -e "  ${DIM}v0.1.0  ·  github.com/Brainitech/Brain_Shell${NC}"
+echo -e "  ${DIM}v0.1.0  ·  github.com/KendrickMathers/Brain_Shell${NC}"
 echo ""
 
 
@@ -136,13 +136,13 @@ mkdir -p "$REPO_PARENT"
 
 if [[ -d "$REPO_DIR/.git" ]]; then
     log_info "Existing clone found — updating..."
-    git -C "$REPO_DIR" fetch origin main 2>/dev/null || true
-    git -C "$REPO_DIR" checkout main 2>/dev/null || true
-    git -C "$REPO_DIR" pull origin main 2>/dev/null || true
+    git -C "$REPO_DIR" fetch origin brain-desktop  2>/dev/null || true
+    git -C "$REPO_DIR" checkout brain-desktop 2>/dev/null || true
+    git -C "$REPO_DIR" pull origin brain-desktop 2>/dev/null || true
     log_ok "Repository updated: $REPO_DIR"
 else
     log_info "Cloning from GitHub..."
-    git clone -b main https://github.com/Brainitech/Brain_Shell.git "$REPO_DIR"
+    git clone -b brain-desktop https://github.com/KendrickMathers/Brain_Shell.git "$REPO_DIR"
     log_ok "Repository cloned: $REPO_DIR"
 fi
 
