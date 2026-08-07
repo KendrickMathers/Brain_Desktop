@@ -102,3 +102,30 @@ cd Brain_Desktop
 chmod +x install.sh
 
 ./install.sh
+
+# Known Issues
+
+## Compatibility
+
+- Brain Desktop is primarily tested on CachyOS and Arch Linux with Hyprland.
+- Other Arch-based distributions may work but may require additional adjustments.
+
+## Hardware
+
+- NVIDIA users may need additional driver configuration depending on their hardware and driver setup.
+- Multi-monitor setups may require manual Hyprland workspace and monitor configuration.
+
+## Installation
+
+- Existing Hyprland configurations are backed up before installation, but custom configurations may require manual merging.
+- Some optional applications (such as Ghostty or Fastfetch assets) may need to be installed separately if they are not available on the system.
+
+## Brain Shell
+
+- Brain Shell requires a working Quickshell installation.
+- Custom keybinds may conflict with existing Hyprland bindings.
+
+## Wallpapers
+
+- Video wallpapers depend on the configured wallpaper backend and required dependencies.
+- Wallpaper paths may need adjustment if users use custom wallpaper locations.
