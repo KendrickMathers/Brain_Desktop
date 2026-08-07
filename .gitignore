@@ -1,0 +1,24 @@
+# Temporary files
+*.tmp
+*.log
+*.bak
+
+# Editor
+*.swp
+*.swo
+
+# Cache
+.cache/
+__pycache__/
+*.pyc
+
+# Quickshell runtime
+runtime/
+state/
+
+# User specific
+*.local
+
+# OS files
+.DS_Store
+Thumbs.db

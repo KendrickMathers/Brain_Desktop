@@ -1,0 +1,11 @@
+[Unit]
+Description=Wipe cliphist history on logout/shutdown
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStart=/usr/bin/true
+ExecStop=/usr/bin/cliphist wipe
+
+[Install]
+WantedBy=default.target
