@@ -1,273 +1,328 @@
-  <h1 align=center>Brain_Shell</h1>
-  
-  <h3 align="center">
-  A dynamic, highly modular Wayland desktop shell built with Quickshell and QML, tailored for Hyprland.
-  </h3>
-</p>
+# Brain Shell
 
-<p align="center">
-  <img src="https://img.shields.io/github/last-commit/KendrickMathers/Brain_Shell?style=for-the-badge&color=8D748C&logoColor=D9E0EE&labelColor=252733" alt="Last Commit" />
-  <img src="https://img.shields.io/github/stars/KendrickMathers/Brain_Shell?style=for-the-badge&logo=starship&color=AB6C6A&logoColor=D9E0EE&labelColor=252733" alt="Stars" />
-  <img src="https://img.shields.io/badge/version-0.1.0-8D748C?style=for-the-badge&logoColor=D9E0EE&labelColor=252733" alt="Version 0.1.0" />
-  <br>
-  <img src="https://img.shields.io/badge/hyprland-v0.55+-5E81AC?style=for-the-badge&logoColor=D9E0EE&labelColor=252733" alt="Hyprland v0.55+" />
-  <img src="https://img.shields.io/badge/framework-quickshell-A1C999?style=for-the-badge&logoColor=D9E0EE&labelColor=252733" alt="Quickshell Framework" />
-  <br>
-  <a href="https://github.com/KendrickMathers/Brain_Shell/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/KendrickMathers/Brain_Shell?style=for-the-badge&color=A1C999&logo=opensourceinitiative&logoColor=D9E0EE&labelColor=252733" alt="License" />
-  </a>
-  <a href="https://github.com/KendrickMathers/Brain_Shell/issues">
-    <img src="https://img.shields.io/github/issues/KendrickMathers/Brain_Shell?style=for-the-badge&logo=github&color=5E81AC&logoColor=D9E0EE&labelColor=252733" alt="Issues" />
-  </a>
-  <a href="https://discord.gg/BV8UduvABx">
-    <img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fdiscordapp.com%2Fapi%2Finvites%2FBV8UduvABx%3Fwith_counts%3Dtrue&query=approximate_member_count&style=for-the-badge&logo=discord&logoColor=D9E0EE&label=discord&labelColor=252733&color=7289DA" alt="Discord Invite" />
-  </a>
-</p>
+A modular Quickshell/QML desktop shell for Hyprland.
+
+Brain Shell provides a modern Wayland desktop experience with customizable panels, dashboards, widgets, system controls, and automation tools.
+
+This repository is a customized fork focused on:
+
+- CachyOS / Arch Linux support
+- Automated desktop configuration deployment
+- Hyprland environment setup
+- Backup and restore workflow
+- Easy installation
+- Personal Hyprland rice deployment
 
 ---
 
-<h2>Showcase</h2>
+# Screenshots
 
-<div align="center">
-  <video src="https://github.com/user-attachments/assets/93a0697e-c531-4510-b2f0-a59a4b6072b4" controls="controls" muted="muted" style="max-width: 100%; height: auto;"></video>
-</div>
+Screenshots will be added soon.
 
 ---
 
-<h2 align="center">Features</h2>
+# Installation
 
-- **Modular Setup** — Unintrusive setup
-- **Material You Integration** — Dynamic colors via Matugen
-- **Lua-Based Config** — Hyprland v0.55+ compatible
-- **System Dashboard** — Monitor CPU, RAM, battery, temps, and more
-- **Kanban/Tasks** — To Do, Ongoing and Competed lists with Prioiry and Deadlines
-- **App Launcher** — Dropdown App Launcher
-- **Keybinds** — Set your own keybinds for each popup
-- **Theming Engine** — Live wallpaper-synced color updates
-- **Network Manager** — WiFi, Bluetooth, VPN integration
-- **Notifications** — DBus Notifcations via libnotify
-- **Audio Control** — PipeWire volume & device management
-- **Screen Recorder** — Built-in recording with wf-recorder
-- **Clipboard Manager** — Cliphist integration for history management
-- **Highly Customizable** — QML-based UI, easily extended
+## Automatic Installation
 
-> **Note:** Brain Shell is currently in its `v0.1.0` release. While the core architecture and theming pipeline are feature-complete, you may encounter bugs. Please report them on our [Discord](https://discord.gg/BV8UduvABx) or via GitHub Issues!
-
----
-
-<h2>
-  Installation
-</h2>
-
-### One line installer
+Run:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/KendrickMathers/Brain_Shell/refs/heads/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/KendrickMathers/Brain_Shell/refs/heads/brain-desktop/install.sh | bash
 ```
 
-### Manual installation
+The installer will:
+
+- Check system compatibility
+- Verify dependencies
+- Backup existing configurations
+- Install required packages
+- Deploy Brain Shell configuration
+- Install Hyprland configuration
+- Enable systemd user services
+- Initialize wallpaper directories
+
+After installation, restart Hyprland.
+
+---
+
+# Manual Installation
+
+Clone the repository:
 
 ```bash
 git clone https://github.com/KendrickMathers/Brain_Shell.git
+```
+
+Enter directory:
+
+```bash
 cd Brain_Shell
+```
+
+Run installer:
+
+```bash
 chmod +x install.sh
 ./install.sh
 ```
 
-The installer automatically:
+---
 
-- ✓ Detects your Linux distribution
-- ✓ Detects your Window Manager and Hyprland Config
-- ✓ Backs up your entire `~/.config`
-- ✓ Installs all required dependencies
-- ✓ Clones the repository to `~/.local/src/Brain_Shell`
-- ✓ Updates your Hyprland config to auto-start Brain_Shell and required dependencies
-- ✓ Creates configuration directories
+# Supported Systems
 
-**After installation, restart Hyprland for changes to take effect.**
+Currently supported:
+
+- Arch Linux
+- CachyOS
+- EndeavourOS
+- Garuda Linux
+
+Other Arch-based distributions may work but are not officially tested.
 
 ---
 
-<h2>
-  Requirements
-</h2>
+# Requirements
 
-> [!IMPORTANT]
-> **Matugen is required** for dynamic color generation. Brain Shell will not function correctly without it.
+## Desktop Environment
 
-### Core Dependencies
+- Hyprland
+- Wayland session
+- Quickshell
 
-<details open>
-<summary><b>Runtime & Rendering</b></summary>
+## System Components
 
-- **Hyprland** v0.55+ – Wayland compositor
-- **Quickshell** – QML shell framework
-- **Qt6** – Qt6 libraries and QML engine
-- **qt6ct** – Qt6 theme configuration
+- Qt6
+- PipeWire
+- WirePlumber
+- NetworkManager
+- BlueZ Bluetooth stack
 
-</details>
+## Utilities
 
-<details open>
-<summary><b>System Tools</b></summary>
-
-- **PipeWire** – Audio server (pipewire, pipewire-pulse, wireplumber)
-- **NetworkManager** – Network management
-- **BlueZ** – Bluetooth stack (bluez, bluez-utils)
-- **Brightnessctl** – Backlight control
-- **Mpris** – Media Retrival
-- **Playerctl** – Player controls
-- **UPower** – Battery and power info
-- **libnotify** – Desktop notifications
-- **Polkit** – Privilege escalation
-- **wl-clipboard** – Wayland clipboard (wl-copy/wl-paste)
-
-</details>
-
-<details open>
-<summary><b>Theming & Wallpaper</b></summary>
-
-- **Matugen** – Material You color generation **(REQUIRED)**
-- **awww** – Wallpaper daemon (Wayland)
-- **ImageMagick** – Image manipulation
-
-</details>
-
-<details open>
-<summary><b>Recording & Utilities</b></summary>
-
-- **wf-recorder** – Screen recording (Wayland)
-- **cava** – Audio visualizer
-- **slurp** – Region/window selection
-- **wtype** – Keyboard input emulation
-- **cliphist** – Clipboard history manager
-
-</details>
-
-<details open>
-<summary><b>Hardware Management</b></summary>
-
-- **lm_sensors** – CPU temperature & fan monitoring
-- **rfkill** – Airplane mode control
-- **envycontrol** – GPU switching (NVIDIA/Intel)
-- **auto-cpufreq** – CPU frequency scaling
-- **nbfc-linux** – Laptop fan control
-
-</details>
-
-<details open>
-<summary><b>Hyprland Integration</b></summary>
-
-- **hyprlock** – Lock screen
-- **hypridle** – Idle management daemon
-- **hyprsunset** – Blue light filter
-- **hyprshutdown** – Graceful shutdown
-- **xdg-desktop-portal-hyprland** – Portal backend
-
-</details>
-
-<details open>
-<summary><b>Fonts</b></summary>
-
-- **ttf-jetbrains-mono-nerd** – Primary font (Nerd Font variant)
-- **ttf-noto-nerd** – Emoji and CJK support
-
-</details>
+- brightnessctl
+- playerctl
+- mpv-mpris
+- cava
+- wf-recorder
+- slurp
+- wl-clipboard
+- imagemagick
+- wtype
 
 ---
 
-<h2>
-  Roadmap
-</h2>
+# Features
 
-### Current (v0.1.0)
+## Desktop Shell
 
-- [x] Core shell framework
-- [x] System monitoring dashboard
-- [x] Keybind editor with live conflict detection
-- [x] Network management (WiFi, Bluetooth, VPN)
-- [x] Audio control panel
-- [x] Screen recording integration
-- [x] Clipboard manager
-- [x] Material You color integration
-- [x] Lua config generation
-- [x] Professional installer (Arch/NixOS)
-- [x] Auto-update mechanism
+- Modern QML interface
+- Customizable panels
+- Dashboard system
+- Popup system
+- Modular architecture
 
-### Upcoming (Post-v0.1.0)
+## System Controls
 
-- [ ] Scaling on Different Screen-Sizes
-- [ ] Config Pages for Shell Customization
-- [ ] Multi-Monitor Support
-- [ ] Additional theme options
-- [ ] App launcher enhancements (pinned/recent)
-- [ ] Unified popup configuration layer
-- [ ] Extended documentation
-- [ ] Community themes
-- [ ] CLI
-- [ ] More Linux distribution support
+- Audio control
+- Network management
+- Bluetooth management
+- Notification center
+- Clipboard manager
+- Power menu
+- System information
 
----
+## Wallpaper System
 
-<h2>
-Known Issues
-</h2>
+- Image wallpaper support
+- Video wallpaper support
+- Wallpaper restore system
+- Wallpaper directory management
 
-- **Multi-Monitor Scaling:** Global scaling across mixed-resolution monitors (e.g., 4K paired with 1080p) is currently inconsistent. UI elements may appear misproportioned or poorly sized on non-1080p screens.
+## Customization
 
-- **Top Bar Clipping:** Elements within the right notch may become visually clipped if the system tray is expanded and contains an excessive number of active items.
-
-- **Shutdown Menu (Hyprshutdown) State:** Canceling a shutdown or logout action can sometimes leave the Hyprland session in an empty state with most applications unintentionally closed. It may also occasionally struggle to terminate all running apps smoothly.
-
-> [!WARNING]  
-> **NixOS & Flakes Support:** The current NixOS installation pipeline and Flake implementation are highly experimental and currently known to be broken. This is actively under testing and will be properly addressed in an upcoming patch. If you are on NixOS, manual configuration is currently required.
+- Dynamic colors
+- Configurable keybinds
+- Hyprland integration
+- User configuration deployment
 
 ---
 
-<h2>
-  Contributing
-</h2>
+# Configuration System
 
-Brain Shell is actively developed and welcomes contributions!
+Brain Shell includes a configuration deployment system.
 
-- Found a bug? → [Open an issue](https://github.com/KendrickMathers/Brain_Shell/issues)
-- Have an idea? → [Start a discussion](https://github.com/KendrickMathers/Brain_Shell/discussions)
-- Want to contribute? → Fork, branch, and submit a pull request
-- Want to join the community? → [Join Discord](https://discord.com/invite/BV8UduvABx)
+Structure:
 
----
+```text
+configs/
+├── hypr/
+│   └── hyprland.lua
+│
+├── Brain_Shell/
+│   ├── Brain_ShellKeybinds.lua
+│   ├── Brain_ShellKeybinds.conf
+│   └── colors.conf
+│
+└── systemd/
+    └── brainshell.service
+```
 
-<h2>
-  Special Thanks
-</h2>
+The installer deploys:
 
-- **[Hyprland Community](https://github.com/hyprwm)** – For creating an exceptional Wayland compositor and fostering an amazing community
-- **[Quickshell Contributors](https://github.com/quickshell/quickshell)** – For the powerful QML framework that powers this shell
-- **[Matugen Team](https://github.com/InioX/matugen)** – For Material You color generation technology
-- **[Wayland Project](https://wayland.freedesktop.org)** – For the modern display protocol foundation
-- **[Celestial Shell](https://github.com/caelestia-dots/shell)** & **[AX-Shell](https://github.com/Axenide/ax-shell)** — For the inspiration
-- **[NotCandy001](https://github.com/notcandy001)** — For the installer
-- **All the Testers & Contributors** — For their time put into testing and suggesting fixes.
-
----
-
-<h2>
-  Brain Cells Collected
-</h2>
-
-<div align="center">
-  <a href="https://www.star-history.com/?repos=KendrickMathers%2FBrain_Shell&type=date&legend=top-left">
-   <picture>
-     <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=KendrickMathers/Brain_Shell&type=date&theme=dark&legend=top-left" />
-     <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=KendrickMathers/Brain_Shell&type=date&legend=top-left" />
-     <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=KendrickMathers/Brain_Shell&type=date&legend=top-left" />
-   </picture>
-  </a>
-</div>
+```text
+~/.config/
+├── hypr/
+├── Brain_Shell/
+└── systemd/user/
+```
 
 ---
 
-<h2>
-  License
-</h2>
+# Backup System
 
-This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
+Before modifying existing configurations, Brain Shell creates a backup:
+
+```text
+~/.config.backup-TIMESTAMP-Brain_Shell/
+```
+
+This allows restoring the previous Hyprland configuration if needed.
+
+---
+
+# Installer Workflow
+
+```text
+install.sh
+    |
+    v
+Dependency Check
+    |
+    v
+System Detection
+    |
+    v
+Backup Existing Config
+    |
+    v
+Clone Repository
+    |
+    v
+Install Packages
+    |
+    v
+Deploy Configuration
+    |
+    v
+Enable Services
+```
+
+---
+
+# Project Structure
+
+```text
+Brain_Shell/
+├── configs/
+├── dots-extra/
+├── installer/
+├── scripts/
+├── src/
+├── install.sh
+├── shell.qml
+└── README.md
+```
+
+---
+
+# Development
+
+Development branch:
+
+```text
+brain-desktop
+```
+
+This branch contains:
+
+- Installer improvements
+- Configuration deployment
+- Desktop integration
+- Experimental features
+
+Stable releases will be merged into:
+
+```text
+main
+```
+
+---
+
+# Keybinds
+
+Default keybinds can be configured through:
+
+```text
+~/.config/Brain_Shell/
+```
+
+Configuration files:
+
+```text
+Brain_ShellKeybinds.lua
+Brain_ShellKeybinds.conf
+```
+
+---
+
+# Contributing
+
+Contributions are welcome.
+
+Before submitting changes:
+
+```bash
+git checkout -b feature/my-feature
+git commit -m "Add feature"
+git push
+```
+
+Then open a pull request.
+
+---
+
+# Credits
+
+Originally created by:
+
+```text
+Venkat Saahit Kamu (Brainitech)
+```
+
+This fork contains additional modifications:
+
+- Brain Desktop installer workflow
+- Arch/CachyOS configuration deployment
+- Backup and restore system
+- Additional desktop integration
+
+Modifications by:
+
+```text
+KendrickMathers
+```
+
+---
+
+# License
+
+Brain Shell is licensed under the MIT License.
+
+See:
+
+```text
+LICENSE
+```
+
+for full license information.
