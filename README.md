@@ -1,4 +1,7 @@
 # Brain Desktop
+## Preview
+
+![Brain Desktop](screenshots/desktop.png)
 
 My personal Hyprland desktop environment.
 
