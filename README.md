@@ -1,124 +1,239 @@
-> ⚠️ Important:
->
-> Brain Desktop is a complete Hyprland environment configuration.
+# Brain Desktop
+
+> ⚠️ Brain Desktop is a complete Hyprland environment configuration.  
 > It is not a standalone desktop environment.
 >
+> Designed for Arch Linux based systems such as CachyOS.  
 > You need an existing Hyprland + Wayland setup before installation.
 
+A complete Hyprland desktop configuration featuring a customized Wayland environment with Brain Shell integration, system tools, and personal desktop workflow.
 
-# Brain Desktop
-## Preview
+---
 
-![Brain Desktop](screenshots/desktop.png)
+# Preview
 
-My personal Hyprland desktop environment.
+![Brain Desktop Screenshot](screenshots/desktop.png)
 
-## Features
+---
 
-- Hyprland
+# Features
+
+## Desktop Environment
+
+- Hyprland configuration
+- Brain Shell integration
+- Custom Wayland workflow
+- Automated configuration deployment
+- Personal desktop environment setup
+
+## Applications & Tools
+
 - Brain Shell
-- Fastfetch
-- Ghostty
-- Custom configuration
-- Automated installer
+- Fastfetch customization
+- Ghostty terminal configuration
+- Hyprland utilities
+- Systemd user services
 
+## Installer System
 
-## Installation
+- Automatic configuration deployment
+- Existing configuration backup
+- Compatibility checks
+- Easy installation
+- Uninstaller support
+
+---
+
+# Installation
+
+## Automatic Installation
+
+Clone the repository:
 
 ```bash
 git clone https://github.com/KendrickMathers/Brain_Desktop.git
+```
 
+Enter directory:
+
+```bash
 cd Brain_Desktop
+```
 
+Run installer:
+
+```bash
 chmod +x install.sh
 
 ./install.sh
+```
+
+After installation:
+
+```bash
+Restart Hyprland
+```
+
+---
 
 # Requirements
 
 ## Supported Systems
 
-Brain Desktop is designed for:
+Currently tested on:
 
-- Arch Linux
 - CachyOS
-- EndeavourOS
-- Garuda Linux
+- Arch Linux
 
 Other Arch-based distributions may work but are not officially tested.
 
 ---
 
-## Required Desktop Environment
+## Required Components
 
-Before installing, make sure you have:
+Before installation, make sure you have:
 
 - Hyprland
 - Wayland session
 - Quickshell
-
----
-
-## Required Packages
-
-The configuration uses:
-
-### Core
-
-- Hyprland
-- Quickshell
-- Qt6
 - PipeWire
-- WirePlumber
 - NetworkManager
-- BlueZ Bluetooth
-
-### Utilities
-
-- fastfetch
-- ghostty
-- brightnessctl
-- playerctl
-- wl-clipboard
-- cliphist
-- cava
-- imagemagick
-
-### Optional
-
-- NVIDIA drivers (for NVIDIA users)
-- Matugen (for dynamic colors)
 - Nerd Fonts
 
 ---
 
-## Installation
+# What The Installer Does
+
+The installer will:
+
+- Check system compatibility
+- Verify Hyprland installation
+- Backup existing configurations
+- Install Brain Desktop configurations
+- Deploy Hyprland settings
+- Deploy Brain Shell configuration
+- Install Fastfetch configuration
+- Install Ghostty configuration
+- Enable systemd user services
+
+---
+
+# Backup System
+
+Before modifying your configuration, Brain Desktop creates a backup.
+
+Example:
+
+```text
+~/.config.backup-Brain_Desktop-TIMESTAMP
+```
+
+You can restore your previous configuration manually if needed.
+
+---
+
+# Configuration Structure
+
+```
+Brain_Desktop/
+
+├── configs/
+│
+├── scripts/
+│
+├── wallpapers/
+│
+├── assets/
+│
+├── install.sh
+│
+├── uninstall.sh
+│
+└── README.md
+```
+
+Installed configuration:
+
+```
+~/.config/
+
+├── hypr/
+├── Brain_Shell/
+├── fastfetch/
+├── ghostty/
+└── systemd/user/
+```
+
+---
+
+# Brain Shell Integration
+
+Brain Desktop uses Brain Shell as the main desktop shell.
+
+Brain Shell provides:
+
+- Custom dashboard
+- Widgets
+- System controls
+- Notifications
+- Wallpaper management
+- Keybind integration
+
+Repository:
+
+https://github.com/KendrickMathers/Brain_Shell
+
+---
+
+# Uninstall
+
+To remove Brain Desktop:
 
 ```bash
-git clone https://github.com/KendrickMathers/Brain_Desktop.git
+./uninstall.sh
+```
 
-cd Brain_Desktop
+The uninstall script removes installed configurations and disables Brain Desktop services.
 
-chmod +x install.sh
+Your backup configuration can be restored manually from:
 
-./install.sh
+```text
+~/.config.backup-Brain_Desktop-TIMESTAMP
+```
+
+---
+
+# Keybinds
+
+Brain Desktop includes custom Hyprland keybind integration.
+
+Main configuration:
+
+```text
+~/.config/Brain_Shell/
+```
+
+You can modify keybinds according to your preference.
+
+---
 
 # Known Issues
 
 ## Compatibility
 
 - Brain Desktop is primarily tested on CachyOS and Arch Linux with Hyprland.
-- Other Arch-based distributions may work but may require additional adjustments.
+- Other Arch-based distributions may require additional adjustments.
 
 ## Hardware
 
-- NVIDIA users may need additional driver configuration depending on their hardware and driver setup.
-- Multi-monitor setups may require manual Hyprland workspace and monitor configuration.
+- NVIDIA users may need additional driver configuration depending on their setup.
+- Multi-monitor setups may require manual Hyprland workspace configuration.
 
 ## Installation
 
-- Existing Hyprland configurations are backed up before installation, but custom configurations may require manual merging.
-- Some optional applications (such as Ghostty or Fastfetch assets) may need to be installed separately if they are not available on the system.
+- Existing Hyprland configurations are backed up before installation.
+- Custom configurations may require manual merging.
+- Some applications may require manual installation if missing.
 
 ## Brain Shell
 
@@ -127,5 +242,67 @@ chmod +x install.sh
 
 ## Wallpapers
 
-- Video wallpapers depend on the configured wallpaper backend and required dependencies.
-- Wallpaper paths may need adjustment if users use custom wallpaper locations.
+- Video wallpapers depend on installed wallpaper backend and dependencies.
+- Wallpaper paths may need adjustment for custom locations.
+
+---
+
+# Development
+
+Main repository:
+
+```
+https://github.com/KendrickMathers/Brain_Desktop
+```
+
+Development workflow:
+
+```bash
+git checkout -b feature/my-feature
+
+git commit -m "Add feature"
+
+git push
+```
+
+Pull requests are welcome.
+
+---
+
+# Credits
+
+Originally inspired by:
+
+- Hyprland community
+- Quickshell contributors
+- Linux ricing community
+
+Additional customization and integration:
+
+```text
+KendrickMathers
+```
+
+---
+
+# License
+
+Brain Desktop is licensed under the MIT License.
+
+See:
+
+```text
+LICENSE
+```
+
+for full license information.
+
+---
+
+# Version
+
+Current release:
+
+```text
+v0.1.0
+```
