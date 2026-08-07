@@ -1,0 +1,14 @@
+Brain Shell
+
+Originally created by:
+Venkat Saahit Kamu (Brainitech)
+
+This fork contains additional modifications, including:
+- Brain Desktop installer workflow
+- Arch/CachyOS configuration deployment
+- User configuration backup system
+- Installer improvements
+- Additional desktop integration
+
+Modifications by:
+KendrickMathers
