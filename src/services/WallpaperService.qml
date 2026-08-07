@@ -17,7 +17,6 @@ QtObject {
     property bool reloadAfterExit: false
 
 
-
     signal wallpaperChanged(string path)
 
 
@@ -98,26 +97,62 @@ QtObject {
             root.busy = false
 
 
-
-            if (exitCode === 0 && root.reloadAfterExit) {
-
-
-                root.reloadAfterExit = false
-
-                root.reloadCurrentWallpaper()
-
-                return
-
-            }
-
-
-
             if (exitCode !== 0 && exitCode !== 15)
 
                 console.log(
                     "WallpaperService failed:",
                     exitCode
                 )
+
+        }
+
+    }
+
+
+
+
+
+    // ==========================
+    // Restore Process
+    // ==========================
+
+    property Process restoreProc: Process {
+
+
+        stdout: SplitParser {
+
+
+            onRead: function(line) {
+
+
+                var file = line.trim()
+
+
+                if (file === "")
+
+                    return
+
+
+
+                console.log(
+                    "Restoring wallpaper:",
+                    file
+                )
+
+
+
+                root.currentWallpaper = file
+
+                root.wallpaperChanged(file)
+
+
+
+                root.run([
+                    "apply",
+                    file
+                ])
+
+            }
 
         }
 
@@ -141,9 +176,7 @@ QtObject {
 
 
         proc.command = [
-
             script
-
         ].concat(args)
 
 
@@ -158,7 +191,34 @@ QtObject {
 
     function reloadCurrentWallpaper() {
 
-        run(["current"])
+        run([
+            "current"
+        ])
+
+    }
+
+
+
+
+
+    function restoreWallpaper() {
+
+
+        restoreProc.running = false
+
+
+
+        restoreProc.command = [
+
+            script,
+
+            "current"
+
+        ]
+
+
+
+        restoreProc.running = true
 
     }
 
@@ -200,27 +260,6 @@ QtObject {
 
 
 
-    function randomWallpaper() {
-
-
-        busy = true
-
-
-        reloadAfterExit = true
-
-
-        run([
-
-            "random"
-
-        ])
-
-    }
-
-
-
-
-
     function browseImages() {
 
 
@@ -241,8 +280,10 @@ QtObject {
 
 
             "--filename=" +
-                Quickshell.env("HOME") +
-                "/Pictures/Wallpapers/",
+
+            Quickshell.env("HOME") +
+
+            "/Pictures/Wallpapers/Images/",
 
 
             "--file-filter=Images | *.png *.jpg *.jpeg *.webp"
@@ -280,8 +321,10 @@ QtObject {
 
 
             "--filename=" +
-                Quickshell.env("HOME") +
-                "/Videos/Wallpapers/",
+
+            Quickshell.env("HOME") +
+
+            "/Pictures/Wallpapers/Videos/",
 
 
             "--file-filter=Videos | *.mp4 *.mkv *.webm *.mov"
@@ -299,10 +342,25 @@ QtObject {
 
 
 
+    function randomWallpaper() {
+
+
+        run([
+
+            "random"
+
+        ])
+
+    }
+
+
+
+
+
     Component.onCompleted: {
 
 
-        reloadCurrentWallpaper()
+        restoreWallpaper()
 
     }
 

@@ -27,9 +27,19 @@ Item {
 
 
 
-            SectionTitle {
+            SettingCard {
 
-                text: "Wallpaper"
+
+                width: parent.width
+
+
+
+                SectionTitle {
+
+                    text: "Wallpaper"
+
+                }
+
 
             }
 
@@ -49,6 +59,7 @@ Item {
                     text: "Actions"
 
                 }
+
 
 
 
@@ -94,25 +105,6 @@ Item {
                 ActionButton {
 
 
-                    text: "Random Wallpaper"
-
-
-
-                    onClicked: {
-
-                        WallpaperService.randomWallpaper()
-
-                    }
-
-                }
-
-
-
-
-
-                ActionButton {
-
-
                     text: "Open Wallpaper Folder"
 
 
@@ -122,9 +114,9 @@ Item {
 
                         FileService.open(
 
-                            Quickshell.env("HOME") +
+                            Quickshell.env("HOME")
 
-                            "/Pictures/Wallpapers"
+                            + "/Pictures/Wallpapers"
 
                         )
 
@@ -177,6 +169,7 @@ Item {
 
 
             }
+
 
         }
 
