@@ -38,7 +38,7 @@ QtObject {
     }
 
     function github() {
-        open("https://github.com/Brainitech/Brain_Shell")
+        open("https://github.com/KendrickMathers/Brain_Shell")
     }
 
 }

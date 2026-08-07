@@ -50,7 +50,7 @@ QtObject {
 
     function openGithub() {
 
-        run("xdg-open https://github.com/Brainitech/Brain_Shell")
+        run("xdg-open https://github.com/KendrickMathers/Brain_Shell")
 
     }
 

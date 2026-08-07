@@ -112,7 +112,7 @@
 
           meta = with pkgs.lib; {
             description  = "A modular Quickshell/QML desktop shell for Hyprland";
-            homepage     = "https://github.com/Brainitech/Brain_Shell";
+            homepage     = "https://github.com/KendrickMathers/Brain_Shell";
             license      = licenses.mit;
             platforms    = platforms.linux;
             mainProgram  = "brain-shell";
