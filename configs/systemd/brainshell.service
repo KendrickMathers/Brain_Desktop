@@ -1,0 +1,11 @@
+[Unit]
+Description=Brain Shell Quickshell
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/quickshell -c /home/brain/.local/src/Brain_Shell
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=default.target
