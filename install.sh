@@ -5,6 +5,7 @@
 # ─────────────────────────────────────────────────────────────────────────────
 # Hesitation is Defeat — Isshin Ashina
 set -eo pipefail
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # ── Colors ────────────────────────────────────────────────────────────────────
 RED='\033[0;31m';   GREEN='\033[0;32m';  YELLOW='\033[1;33m'
@@ -72,6 +73,17 @@ if [[ -f /etc/os-release ]]; then
     esac
 else
     die "Cannot detect distro — /etc/os-release not found."
+fi
+
+# Dependency check
+
+CHECKER="$SCRIPT_DIR/installer/check-dependencies.sh"
+
+if [[ -f "$CHECKER" ]]; then
+     chmod +x "$CHECKER"
+     bash "$CHECKER"
+else
+     log_warn "Dependency checker not found."
 fi
 
 # Hyprland session (warn only, don't abort)
