@@ -1,0 +1,36 @@
+# ─────────────────────────────
+# Brain Shell
+# ─────────────────────────────
+
+# User generated data
+src/user_data/
+
+# Runtime/cache
+*.log
+*.cache
+.cache/
+
+# Qt/QML cache
+.qmlcache
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Backup configs
+*.backup
+*.old
+
+# Build artifacts
+build/
+dist/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Editor files
+.vscode/
+.idea/
