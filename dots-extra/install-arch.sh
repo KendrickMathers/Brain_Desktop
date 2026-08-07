@@ -402,6 +402,44 @@ cp -n -r "$REPO_DIR/src/assets/wallpapers"/* "$HOME/Pictures/Wallpapers/" 2>/dev
 
 log_ok "Cache directories initialized"
 
+# ─────────────────────────────────────────────────────────────────────────────
+# ─────────────────────────────────────────────────────────────────────────────
+# ─────────────────────────────────────────────────────────────────────────────
+# Brain Desktop Configuration
+# ─────────────────────────────────────────────────────────────────────────────
+
+echo ""
+step 6 "Applying Brain Desktop Configuration"
+
+CONFIG_DIR="$REPO_DIR/configs"
+
+mkdir -p "$HOME/.config/hypr"
+mkdir -p "$HOME/.config/Brain_Shell"
+mkdir -p "$HOME/.config/systemd/user"
+mkdir -p "$HOME/Pictures/Wallpapers/Images"
+mkdir -p "$HOME/Pictures/Wallpapers/Videos"
+
+if [[ -f "$CONFIG_DIR/hypr/hyprland.lua" ]]; then
+    cp "$CONFIG_DIR/hypr/hyprland.lua" "$HOME/.config/hypr/"
+    log_ok "Installed Hyprland config"
+fi
+
+if [[ -d "$CONFIG_DIR/Brain_Shell" ]]; then
+    cp "$CONFIG_DIR/Brain_Shell/"* "$HOME/.config/Brain_Shell/"
+    log_ok "Installed Brain Shell configs"
+fi
+
+if [[ -f "$CONFIG_DIR/systemd/brainshell.service" ]]; then
+    cp "$CONFIG_DIR/systemd/brainshell.service" "$HOME/.config/systemd/user/"
+
+    systemctl --user daemon-reload
+    systemctl --user enable brainshell.service
+
+    log_ok "Enabled Brain Shell service"
+fi
+
+log_ok "Brain Desktop configuration applied"
+
 # ── Keybind Conflict Detection ────────────────────────────────────────────────
 echo ""
 log_info "Checking keybind conflicts against active Hyprland session..."
