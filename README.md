@@ -64,15 +64,10 @@ Run installer:
 
 ```bash
 chmod +x install.sh
-
 ./install.sh
 ```
 
-After installation:
-
-```bash
-Restart Hyprland
-```
+After installation, restart Hyprland.
 
 ---
 
@@ -109,9 +104,9 @@ The installer will:
 - Check system compatibility
 - Verify Hyprland installation
 - Backup existing configurations
-- Install Brain Desktop configurations
-- Deploy Hyprland settings
-- Deploy Brain Shell configuration
+- Deploy Brain Desktop configurations
+- Install Hyprland configuration
+- Install Brain Shell configuration
 - Install Fastfetch configuration
 - Install Ghostty configuration
 - Enable systemd user services
@@ -128,7 +123,7 @@ Example:
 ~/.config.backup-Brain_Desktop-TIMESTAMP
 ```
 
-You can restore your previous configuration manually if needed.
+Your previous configuration can be restored manually if needed.
 
 ---
 
@@ -168,7 +163,7 @@ Installed configuration:
 
 # Brain Shell Integration
 
-Brain Desktop uses Brain Shell as the main desktop shell.
+Brain Desktop uses **Brain Shell** as the main desktop shell.
 
 Brain Shell provides:
 
@@ -179,9 +174,9 @@ Brain Shell provides:
 - Wallpaper management
 - Keybind integration
 
-Repository:
+Original project:
 
-https://github.com/KendrickMathers/Brain_Shell
+https://github.com/Brainitech/Brain_Shell
 
 ---
 
@@ -233,7 +228,7 @@ You can modify keybinds according to your preference.
 
 - Existing Hyprland configurations are backed up before installation.
 - Custom configurations may require manual merging.
-- Some applications may require manual installation if missing.
+- Some optional applications may require manual installation if missing.
 
 ## Brain Shell
 
@@ -251,9 +246,7 @@ You can modify keybinds according to your preference.
 
 Main repository:
 
-```
 https://github.com/KendrickMathers/Brain_Desktop
-```
 
 Development workflow:
 
@@ -281,6 +274,30 @@ Created by:
 
 ```text
 Venkat Saahit Kamu (Brainitech)
+```
+
+Brain Desktop adds:
+
+- Hyprland desktop configuration
+- Automated installation workflow
+- Backup and restore system
+- CachyOS / Arch Linux integration
+- Fastfetch configuration
+- Ghostty configuration
+- Additional desktop customization
+
+Maintained by:
+
+```text
+KendrickMathers
+```
+
+Special thanks to:
+
+- Hyprland community
+- Quickshell contributors
+- Linux ricing community
+
 ---
 
 # License
