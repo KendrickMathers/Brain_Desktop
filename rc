@@ -1,0 +1,34 @@
+[0;1;32m●[0m brainshell.service - Brain Shell Quickshell
+     Loaded: loaded (]8;;file://Ilham-PC/home/brain/.config/systemd/user/brainshell.service\/home/brain/.config/systemd/user/brainshell.service]8;;\; [0;1;32menabled[0m; preset: [0;1;32menabled[0m)
+     Active: [0;1;32mactive (running)[0m since Sat 2026-08-08 21:46:33 WIB; 3s ago
+ Invocation: 6ce90ba7eb5e4f0b8fb1d1364e14b829
+   Main PID: 415022 (quickshell)
+      Tasks: 37[0;38:5:245m (limit: 36997)[0m
+     Memory: 183.3M (peak: 184.6M)
+        CPU: 1.534s
+     CGroup: /user.slice/user-1002.slice/user@1002.service/app.slice/brainshell.service
+             ├─[0;38:5:245m415022 /usr/bin/quickshell -c /home/brain/.local/src/Brain_Shell[0m
+             ├─[0;38:5:245m415032 cava -p /tmp/brain_shell/cava_shared.ini[0m
+             ├─[0;38:5:245m415118 /usr/bin/bash -c "nmcli -t -f ACTIVE,SSID dev wifi 2>/dev/null | grep '^yes:' | head -1 | cut -d: -f2"[0m
+             ├─[0;38:5:245m415130 nmcli -t -f ACTIVE,SSID dev wifi[0m
+             ├─[0;38:5:245m415133 grep ^yes:[0m
+             ├─[0;38:5:245m415136 head -1[0m
+             ├─[0;38:5:245m415137 cut -d: -f2[0m
+             ├─[0;38:5:245m415166 /usr/bin/bash -c "nmcli -t -f ACTIVE,SIGNAL dev wifi 2>/dev/null | grep '^yes:' | head -1 | cut -d: -f2"[0m
+             ├─[0;38:5:245m415172 nmcli -t -f ACTIVE,SIGNAL dev wifi[0m
+             ├─[0;38:5:245m415173 grep ^yes:[0m
+             ├─[0;38:5:245m415174 head -1[0m
+             ├─[0;38:5:245m415175 cut -d: -f2[0m
+             ├─[0;38:5:245m415255 /usr/bin/hyprctl -j activeworkspace[0m
+             └─[0;38:5:245m415256 /usr/bin/hyprctl activewindow -j[0m
+
+Aug 08 21:46:34 Ilham-PC quickshell[415022]:   WARN scene: @src/popups/WallpaperPopup.qml[204:13]: Unable to assign [undefined] to QString
+Aug 08 21:46:34 Ilham-PC quickshell[415022]:   WARN scene: @src/popups/WallpaperPopup.qml[587:33]: Unable to assign [undefined] to QString
+Aug 08 21:46:34 Ilham-PC quickshell[415022]:   WARN quickshell.service.notifications: Could not register notification server at org.freedesktop.Notifications, presumably because one is already registered.
+Aug 08 21:46:34 Ilham-PC quickshell[415022]:   WARN quickshell.service.notifications: Registration will be attempted again if the active service is unregistered.
+Aug 08 21:46:34 Ilham-PC quickshell[415022]:   INFO: Configuration Loaded
+Aug 08 21:46:34 Ilham-PC quickshell[415022]:  DEBUG qml: Restoring wallpaper: $HOME/Pictures/Wallpapers/Images/brain-shell-default-1.png
+Aug 08 21:46:34 Ilham-PC quickshell[415022]:  DEBUG qml: WallpaperService: /home/brain/.local/src/Brain_Shell/src/scripts/wallpaper.sh apply $HOME/Pictures/Wallpapers/Images/brain-shell-default-1.png
+Aug 08 21:46:34 Ilham-PC quickshell[415022]:  DEBUG qml: UpdateService: Loaded config. autoUpdate=true
+Aug 08 21:46:34 Ilham-PC quickshell[415022]:  DEBUG qml: UpdateService: Auto-update enabled. Starting 30s delay timer.
+Aug 08 21:46:34 Ilham-PC quickshell[415022]:  DEBUG qml: WallpaperService failed: 1

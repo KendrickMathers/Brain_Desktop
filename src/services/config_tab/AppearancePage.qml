@@ -1,10 +1,13 @@
 import QtQuick
 import "../../"
 import "../../components"
+import "../"
+
 
 Item {
 
     anchors.fill: parent
+
 
 
     PopupPage {
@@ -12,9 +15,11 @@ Item {
         anchors.fill: parent
 
 
+
         SettingCard {
 
             width: parent.width
+
 
 
             SectionTitle {
@@ -24,142 +29,218 @@ Item {
             }
 
 
+
             SettingRow {
 
-                title: "Accent Color"
+                title: "Bar Transparency"
 
-                subtitle: "Material You colors powered by Matugen"
-
-
-                Rectangle {
-
-                    width: 90
-                    height: 28
-
-                    radius: 14
+                subtitle: "Change top bar opacity"
 
 
-                    color: Qt.rgba(
-                        Theme.active.r,
-                        Theme.active.g,
-                        Theme.active.b,
-                        0.18
-                    )
+
+                Row {
+
+                    spacing: 10
 
 
-                    border.color: Theme.active
-                    border.width: 1
+
+                    Rectangle {
+
+                        width: 35
+                        height: 28
+                        radius: 14
+
+
+                        color: Theme.active
+
+
+
+                        Text {
+
+                            anchors.centerIn: parent
+
+                            text: "-"
+
+                            color: Theme.background
+
+                        }
+
+
+
+                        MouseArea {
+
+                            anchors.fill: parent
+
+
+
+                            onClicked: {
+
+
+                                SettingsService.setBarOpacity(
+
+                                    Math.max(
+
+                                        0.0,
+
+                                        SettingsService.barOpacity - 0.05
+
+                                    )
+
+                                )
+
+                            }
+
+                        }
+
+                    }
+
+
+
 
 
                     Text {
 
-                        anchors.centerIn: parent
+                        width: 50
 
-                        text: "Matugen"
+
+                        text:
+
+                        Math.round(
+
+                            SettingsService.barOpacity * 100
+
+                        ) + "%"
+
+
+
+                        color: Theme.text
+
+
+                        horizontalAlignment:
+
+                        Text.AlignHCenter
+
+                    }
+
+
+
+
+
+                    Rectangle {
+
+
+                        width: 35
+
+                        height: 28
+
+                        radius: 14
+
+
 
                         color: Theme.active
 
-                        font.pixelSize: 11
+
+
+
+                        Text {
+
+                            anchors.centerIn: parent
+
+
+                            text: "+"
+
+
+                            color: Theme.background
+
+                        }
+
+
+
+
+                        MouseArea {
+
+                            anchors.fill: parent
+
+
+
+                            onClicked: {
+
+
+                                SettingsService.setBarOpacity(
+
+                                    Math.min(
+
+                                        1.0,
+
+                                        SettingsService.barOpacity + 0.05
+
+                                    )
+
+                                )
+
+
+                            }
+
+                        }
 
                     }
+
 
                 }
 
             }
 
 
-            Divider {}
-
-
-            SettingRow {
-
-                title: "Blur & Transparency"
-
-                subtitle: "Glass effects"
-
-
-                Rectangle {
-
-                    width: 90
-                    height: 28
-
-                    radius: 14
-
-
-                    color: Qt.rgba(
-                        Theme.active.r,
-                        Theme.active.g,
-                        Theme.active.b,
-                        0.18
-                    )
-
-
-                    border.color: Theme.active
-                    border.width: 1
-
-
-                    Text {
-
-                        anchors.centerIn: parent
-
-                        text: "Soon"
-
-                        color: Theme.active
-
-                        font.pixelSize: 11
-
-                    }
-
-                }
-
-            }
-
 
             Divider {}
 
 
+
             SettingRow {
+
 
                 title: "Corner Radius"
 
-                subtitle: "Rounded corners"
+                subtitle: "Rounded UI"
 
 
-                Rectangle {
 
-                    width: 90
-                    height: 28
+                Text {
 
-                    radius: 14
+                    text: SettingsService.cornerRadius
 
-
-                    color: Qt.rgba(
-                        Theme.active.r,
-                        Theme.active.g,
-                        Theme.active.b,
-                        0.18
-                    )
-
-
-                    border.color: Theme.active
-                    border.width: 1
-
-
-                    Text {
-
-                        anchors.centerIn: parent
-
-                        text: "Soon"
-
-                        color: Theme.active
-
-                        font.pixelSize: 11
-
-                    }
+                    color: Theme.active
 
                 }
 
             }
+
+
+
+            Divider {}
+
+
+
+            SettingRow {
+
+
+                title: "Blur"
+
+                subtitle: "Glass effect"
+
+
+
+                Text {
+
+                    text: SettingsService.blurRadius
+
+                    color: Theme.active
+
+                }
+
+            }
+
+
 
         }
 
