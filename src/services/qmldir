@@ -19,8 +19,8 @@ NotificationList ./notifications/NotificationList.qml
 singleton WallpaperService 1.0 WallpaperService.qml
 singleton FileService 1.0 FileService.qml
 singleton ScreenRecService 1.0 ScreenRecService.qml
-singleton AppearanceService 1.0 AppearanceService.qml
 KanbanBoard KanbanBoard.qml
 AppLauncher AppLauncher.qml
 ShellConfig ./config_tab/ShellConfig.qml
 KeybindsPage ./config_tab/KeybindsPage.qml
+

@@ -24,7 +24,6 @@ Item {
             }
 
 
-
             SettingRow {
 
                 title: "Accent Color"
@@ -32,13 +31,10 @@ Item {
                 subtitle: "Material You colors powered by Matugen"
 
 
-
                 Rectangle {
 
                     width: 90
-
                     height: 28
-
 
                     radius: 14
 
@@ -52,21 +48,16 @@ Item {
 
 
                     border.color: Theme.active
-
                     border.width: 1
-
 
 
                     Text {
 
                         anchors.centerIn: parent
 
-
                         text: "Matugen"
 
-
                         color: Theme.active
-
 
                         font.pixelSize: 11
 
@@ -77,9 +68,7 @@ Item {
             }
 
 
-
             Divider {}
-
 
 
             SettingRow {
@@ -89,13 +78,10 @@ Item {
                 subtitle: "Glass effects"
 
 
-
                 Rectangle {
 
                     width: 90
-
                     height: 28
-
 
                     radius: 14
 
@@ -109,21 +95,16 @@ Item {
 
 
                     border.color: Theme.active
-
                     border.width: 1
-
 
 
                     Text {
 
                         anchors.centerIn: parent
 
-
                         text: "Soon"
 
-
                         color: Theme.active
-
 
                         font.pixelSize: 11
 
@@ -134,9 +115,7 @@ Item {
             }
 
 
-
             Divider {}
-
 
 
             SettingRow {
@@ -146,13 +125,10 @@ Item {
                 subtitle: "Rounded corners"
 
 
-
                 Rectangle {
 
                     width: 90
-
                     height: 28
-
 
                     radius: 14
 
@@ -166,21 +142,16 @@ Item {
 
 
                     border.color: Theme.active
-
                     border.width: 1
-
 
 
                     Text {
 
                         anchors.centerIn: parent
 
-
                         text: "Soon"
 
-
                         color: Theme.active
-
 
                         font.pixelSize: 11
 
