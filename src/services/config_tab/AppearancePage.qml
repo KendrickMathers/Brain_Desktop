@@ -207,9 +207,9 @@ Item {
 
                 Text {
 
-                    text: SettingsService.cornerRadius
+                    text: "Update Soon"
 
-                    color: Theme.active
+                    color: Theme.subtext
 
                 }
 
@@ -232,9 +232,9 @@ Item {
 
                 Text {
 
-                    text: SettingsService.blurRadius
+                    text: "Update Soon"
 
-                    color: Theme.active
+                    color: Theme.subtext
 
                 }
 
