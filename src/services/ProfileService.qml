@@ -5,6 +5,7 @@ import Quickshell
 import Quickshell.Io
 import "../state"
 
+
 QtObject {
 
     id: root
@@ -23,6 +24,41 @@ QtObject {
 
 
     property string jsonBuffer: ""
+
+
+
+
+
+    property var checkProcess: Process {
+
+        command: []
+
+        running: false
+
+
+        stdout: SplitParser {
+
+            onRead: function(line) {
+
+                if (line.trim() === "missing") {
+
+                    root.createDefaultProfile()
+
+                } else {
+
+                    root.readProfile()
+
+                }
+
+            }
+
+        }
+
+    }
+
+
+
+
 
 
 
@@ -52,12 +88,15 @@ QtObject {
                     JSON.parse(root.jsonBuffer)
 
 
+
                 root.profileName =
                     data.name || "User"
 
 
+
                 root.avatarPath =
                     data.avatar || ""
+
 
 
                 root.jsonBuffer = ""
@@ -75,11 +114,14 @@ QtObject {
 
                 root.jsonBuffer = ""
 
+
             }
 
         }
 
     }
+
+
 
 
 
@@ -97,6 +139,8 @@ QtObject {
 
 
 
+
+
     property var avatarPicker: Process {
 
         command: []
@@ -104,16 +148,23 @@ QtObject {
         running: false
 
 
+
         stdout: SplitParser {
 
             onRead: function(line) {
 
-                let path = line.trim()
+
+                let path =
+                    line.trim()
+
 
 
                 if (path !== "") {
 
-                    root.pendingAvatarPath = path
+
+                    root.pendingAvatarPath =
+                        path
+
 
 
                     Popups.showConfirm(
@@ -141,10 +192,65 @@ QtObject {
 
 
 
+
+
+
     function loadProfile() {
 
 
+        checkProcess.command = [
+
+            "bash",
+
+            "-c",
+
+            "if [ -f \"" +
+            configPath +
+            "\" ]; then echo exists; else echo missing; fi"
+
+        ]
+
+
+        checkProcess.running = false
+
+        checkProcess.running = true
+
+
+    }
+
+
+
+
+
+
+
+    function createDefaultProfile() {
+
+
+        root.profileName =
+            "User"
+
+
+        root.avatarPath =
+            ""
+
+
+        saveProfile()
+
+
+    }
+
+
+
+
+
+
+
+    function readProfile() {
+
+
         root.jsonBuffer = ""
+
 
 
         readProcess.command = [
@@ -153,9 +259,12 @@ QtObject {
 
             "-c",
 
-            "cat \"" + configPath + "\""
+            "cat \"" +
+            configPath +
+            "\""
 
         ]
+
 
 
         readProcess.running = false
@@ -171,24 +280,32 @@ QtObject {
 
 
 
+
+
     function saveProfile() {
 
 
-        let json = JSON.stringify(
+        let json =
+            JSON.stringify(
 
-            {
+                {
 
-                "name": root.profileName,
+                    "name":
+                        root.profileName,
 
-                "avatar": root.avatarPath
 
-            },
+                    "avatar":
+                        root.avatarPath
 
-            null,
+                },
 
-            4
+                null,
 
-        )
+                4
+
+            )
+
+
 
 
 
@@ -209,6 +326,7 @@ QtObject {
         ]
 
 
+
         saveProcess.running = false
 
         saveProcess.running = true
@@ -226,12 +344,15 @@ QtObject {
     function setName(value) {
 
 
-        root.profileName = value
+        root.profileName =
+            value
+
 
         saveProfile()
 
 
     }
+
 
 
 
@@ -242,12 +363,15 @@ QtObject {
     function setAvatar(value) {
 
 
-        root.avatarPath = value
+        root.avatarPath =
+            value
+
 
         saveProfile()
 
 
     }
+
 
 
 
@@ -282,13 +406,16 @@ QtObject {
 
 
 
+
     function confirmAvatar() {
 
 
         if (root.pendingAvatarPath !== "") {
 
 
-            setAvatar(root.pendingAvatarPath)
+            setAvatar(
+                root.pendingAvatarPath
+            )
 
 
             root.pendingAvatarPath = ""
