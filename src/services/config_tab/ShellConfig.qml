@@ -13,7 +13,6 @@ Item {
         { key: "appearance", icon: "󰏘", label: "Appearance" },
         { key: "wallpaper",  icon: "󰉉", label: "Wallpaper" },
         { key: "keybinds",   icon: "󰌌", label: "Keybinds" },
-        { key: "misc",       icon: "󰒓", label: "About" }
     ]
 
     Row {
@@ -80,9 +79,6 @@ Item {
                 
                 case "keybinds":
                     return "KeybindsPage.qml"
-                
-                case "about":
-                    return "AboutPage.qml"
                 
                 default:
                     return "AppearancePage.qml"
