@@ -34,3 +34,4 @@ __pycache__/
 # Editor files
 .vscode/
 .idea/
+config/profile.json
