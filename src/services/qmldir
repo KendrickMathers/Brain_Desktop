@@ -31,3 +31,4 @@ KeybindsPage ./config_tab/KeybindsPage.qml
 
 singleton SettingsService 1.0 SettingsService.qml
 singleton AppearanceSettings 1.0 AppearanceSettings.qml
+singleton ProfileService 1.0 ProfileService.qml

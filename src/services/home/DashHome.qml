@@ -67,9 +67,13 @@ Item {
 
         ProfileCard {
             id: profileCard
-            anchors { left: parent.left; right: parent.right; top: parent.top }
+            anchors {
+                left: parent.left
+                right: parent.right
+                top: parent.top
+            }
+        
             height: root.profileH
-            avatarPath: root._avatarPath
         }
 
         CalendarCard {

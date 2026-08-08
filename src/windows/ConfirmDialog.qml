@@ -103,6 +103,13 @@ PanelWindow {
                 Popups.cancelConfirm()
                 proc.running    = true
                 break
+            case "change-avatar":
+
+                    ProfileService.confirmAvatar()
+
+                    Popups.cancelConfirm()
+
+                    break    
         }
     }
 
