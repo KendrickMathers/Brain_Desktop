@@ -1,12 +1,13 @@
 import QtQuick
 import QtQuick.Effects
 import Quickshell.Io
+import Quickshell
 import "../../"
 import "../../components"
 import "../../services"
-import Quickshell
 
-// Profile card — circular avatar, username, window manager, uptime.
+
+// Profile card — circular avatar, editable username, window manager, uptime.
 
 StatCard {
 
@@ -15,9 +16,7 @@ StatCard {
     padding: 0
 
 
-    // Compatibility with DashHome.qml
     property string avatarPath: ProfileService.avatarPath
-
 
     property string _wm: ""
     property string _uptime: ""
@@ -80,7 +79,6 @@ StatCard {
 
 
 
-
     Timer {
 
         interval: 60000
@@ -93,7 +91,6 @@ StatCard {
         onTriggered: {
 
             uptimeProc.running = false
-
             uptimeProc.running = true
 
         }
@@ -135,26 +132,26 @@ StatCard {
         // Avatar
 
         Item {
-            
-                width: 72
-                height: 72
-            
-            
-                MouseArea {
-            
-                    anchors.fill: parent
-            
-                    cursorShape: Qt.PointingHandCursor
-            
-                    onClicked: {
-            
-                        ProfileService.chooseAvatar()
-            
-                    }
-            
+
+            width: 72
+            height: 72
+
+
+
+            MouseArea {
+
+                anchors.fill: parent
+
+                cursorShape: Qt.PointingHandCursor
+
+
+                onClicked: {
+
+                    ProfileService.chooseAvatar()
+
                 }
 
-
+            }
 
 
 
@@ -197,13 +194,12 @@ StatCard {
                 }
 
 
-                border.color:
-                    Qt.rgba(
-                        166/255,
-                        208/255,
-                        247/255,
-                        0.22
-                    )
+                border.color: Qt.rgba(
+                    166/255,
+                    208/255,
+                    247/255,
+                    0.22
+                )
 
 
                 border.width: 1
@@ -213,25 +209,19 @@ StatCard {
 
 
 
-
             Rectangle {
 
                 id: photoMask
 
-
                 anchors.fill: parent
-
 
                 radius: width / 2
 
-
                 visible: false
-
 
                 layer.enabled: true
 
             }
-
 
 
 
@@ -241,38 +231,30 @@ StatCard {
                 anchors.fill: parent
 
 
-
                 source:
 
                     ProfileService.avatarPath !== ""
 
                     ? "file://" + ProfileService.avatarPath
 
-
                     : ""
+
 
                 cache: false
 
-                fillMode:
-                    Image.PreserveAspectCrop
 
+                fillMode: Image.PreserveAspectCrop
 
                 smooth: true
-
 
 
                 visible:
 
                     ProfileService.avatarPath !== ""
 
-                    ||
-
-                    root.avatarPath !== ""
-
 
 
                 layer.enabled: true
-
 
 
                 layer.effect: MultiEffect {
@@ -292,7 +274,6 @@ StatCard {
 
 
 
-
             Text {
 
                 anchors.centerIn: parent
@@ -300,23 +281,17 @@ StatCard {
 
                 text: "󰀄"
 
-
                 font.pixelSize: 28
 
-
                 color: Theme.active
-
 
 
                 visible:
 
                     ProfileService.avatarPath === ""
 
-                    &&
-
-                    root.avatarPath === ""
-
             }
+
 
         }
 
@@ -324,12 +299,13 @@ StatCard {
 
 
 
-        // Text
+
+
+        // Profile text
 
         Column {
 
             anchors.verticalCenter: parent.verticalCenter
-
 
             spacing: 10
 
@@ -337,19 +313,133 @@ StatCard {
 
 
 
-            Text {
+            // Editable name
 
-                text: ProfileService.profileName
+            Item {
+
+                width: 170
+
+                height: 26
 
 
-                font.pixelSize: 17
 
-                font.weight: Font.DemiBold
+                Text {
+
+                    id: nameText
 
 
-                color: Theme.active
+                    anchors.fill: parent
+
+
+                    text: ProfileService.profileName
+
+
+                    font.pixelSize: 17
+
+                    font.weight: Font.DemiBold
+
+
+                    color: Theme.active
+
+
+                    verticalAlignment: Text.AlignVCenter
+
+
+                    visible: !nameInput.visible
+
+
+
+                    MouseArea {
+
+                        anchors.fill: parent
+
+
+                        cursorShape: Qt.PointingHandCursor
+
+
+                        onClicked: {
+
+                            nameInput.visible = true
+
+                            nameInput.text =
+                                ProfileService.profileName
+
+
+                            nameInput.forceActiveFocus()
+
+                            nameInput.selectAll()
+
+                        }
+
+                    }
+
+                }
+
+
+
+
+                TextInput {
+
+                    id: nameInput
+
+
+                    anchors.fill: parent
+
+
+                    visible: false
+
+
+                    text: ProfileService.profileName
+
+
+                    font.pixelSize: 17
+
+                    font.weight: Font.DemiBold
+
+
+                    color: Theme.active
+
+
+                    verticalAlignment:
+                        Text.AlignVCenter
+
+
+
+                    selectByMouse: true
+
+
+
+                    onAccepted: {
+
+                        let value = text.trim()
+
+
+                        if (value !== "") {
+
+                            ProfileService.setName(value)
+
+                        }
+
+
+                        visible = false
+
+                    }
+
+
+
+                    Keys.onEscapePressed: {
+
+                        visible = false
+
+                    }
+
+
+                }
 
             }
+
+
+
 
 
 
@@ -377,21 +467,20 @@ StatCard {
 
 
 
+
                 Text {
 
                     text: root._wm
 
-
                     font.pixelSize: 12
 
 
-                    color:
-                        Qt.rgba(
-                            205/255,
-                            214/255,
-                            244/255,
-                            0.55
-                        )
+                    color: Qt.rgba(
+                        205/255,
+                        214/255,
+                        244/255,
+                        0.55
+                    )
 
 
                     anchors.verticalCenter:
@@ -406,10 +495,10 @@ StatCard {
 
 
 
+
             Row {
 
                 spacing: 8
-
 
 
 
@@ -417,9 +506,7 @@ StatCard {
 
                     text: "󰔚"
 
-
                     font.pixelSize: 12
-
 
                     color: Theme.active
 
@@ -432,11 +519,9 @@ StatCard {
 
 
 
-
                 Text {
 
                     text: root._uptime
-
 
                     font.pixelSize: 12
 
@@ -445,13 +530,12 @@ StatCard {
                         "JetBrains Mono"
 
 
-                    color:
-                        Qt.rgba(
-                            205/255,
-                            214/255,
-                            244/255,
-                            0.55
-                        )
+                    color: Qt.rgba(
+                        205/255,
+                        214/255,
+                        244/255,
+                        0.55
+                    )
 
 
                     anchors.verticalCenter:
