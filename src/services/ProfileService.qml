@@ -342,15 +342,14 @@ QtObject {
 
 
     function setName(value) {
-
-
-        root.profileName =
-            value
-
-
+    
+        if (!value || value.trim() === "")
+            return
+    
+        root.profileName = value.trim()
+    
         saveProfile()
-
-
+    
     }
 
 
